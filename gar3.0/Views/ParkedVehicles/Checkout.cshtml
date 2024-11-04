@@ -1,0 +1,64 @@
+﻿@model gar3._0.Models.ParkedVehicle
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<h1>Check Out</h1>
+
+<h3>Are you sure you want to check out this?</h3>
+<div>
+    <h4>ParkedVehicle</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Vehicletype)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Vehicletype)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Regnr)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Regnr)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Color)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Color)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Brand)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Brand)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Numofwheels)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Numofwheels)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Arrival)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Arrival)
+        </dd>
+    </dl>
+    
+    <form asp-action="Checkout">
+        <input type="hidden" asp-for="Regnr" />
+        <input type="submit" value="Check Out" class="btn btn-danger" /> |
+        <a asp-action="Overview">Back to Overview |</a>
+        <a asp-action="Reciept" asp-route-id="@Model.Regnr">Reciept</a> |
+    </form>
+</div>

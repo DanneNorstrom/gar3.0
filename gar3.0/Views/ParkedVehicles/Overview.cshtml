@@ -1,0 +1,56 @@
+﻿@model IEnumerable<gar3._0.Models.OverviewViewModel>
+
+@{
+    ViewData["Title"] = "Overview";
+}
+
+<h1>Overview</h1>
+
+<p>
+    <a asp-action="Checkin">Check In</a>
+</p>
+
+<form asp-action="Search">
+    <label><b>Enter search regnr :</b></label>
+    <br>
+    <input type="text" name="regnr" />
+    <button type="submit">Submit</button>
+    <br>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Vehicletype)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Regnr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Arrival)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vehicletype)
+            </td>
+             <td>
+                @Html.DisplayFor(modelItem => item.Regnr)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Arrival)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Regnr">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Regnr">Details</a> |
+                <a asp-action="Checkout" asp-route-id="@item.Regnr">Check Out</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

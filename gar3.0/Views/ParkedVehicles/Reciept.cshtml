@@ -1,0 +1,50 @@
+﻿@model IEnumerable<gar3._0.Models.RecieptViewModel>
+
+@{
+    ViewData["Title"] = "Reciept";
+}
+
+<h1>Reciept</h1>
+
+@{
+    var item = Model.ElementAt(0);
+    
+    <div>
+        @Html.DisplayNameFor(model => model.Regnr)
+        @Html.DisplayFor(modelItem => item.RegnrFormatted)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Arrival)
+        @Html.DisplayFor(modelItem => item.ArrivalFormatted)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Departure)
+        @Html.DisplayFor(modelItem => item.DepartureFormatted)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Parkedhours)
+        @Html.DisplayFor(modelItem => item.ParkedhoursFormatted)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.RatePerHour)
+        @Html.DisplayFor(modelItem => item.RatePerHourFormatted)
+    </div>
+
+    <div>
+        @Html.DisplayNameFor(model => model.Fee)
+        @Html.DisplayFor(modelItem => item.FeeFormatted)
+    </div>
+
+    <div><br/><br/><br/><br/><br/><br/><br/><br/></div>
+
+    <div>
+        <a asp-action="Checkout" asp-route-id="@item.Regnr">Back to Check Out</a>
+    </div>
+}
+ 
+
+
